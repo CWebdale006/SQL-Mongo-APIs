@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const bodyParser = require('body-parser');
 
 var app = express();
 
@@ -37,5 +38,13 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+// body parser 
+   app.use(bodyParser.urlencoded({
+     extended: true
+   }));
+   app.use(
+     bodyParser.text() 
+   );
 
 module.exports = app;

@@ -4,7 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 var app = express(); 
 
@@ -22,7 +22,7 @@ app.set('view engine', 'ejs'); //3
 /**
  * Server Configuration
  */
-app.use(bodyParser.urlencoder({extended:true}));
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.text());
 
 app.use(logger('dev'));
